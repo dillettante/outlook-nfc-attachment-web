@@ -1,0 +1,32 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Install XML tools
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+      - name: Test
+        run: npm test
+      - name: Validate source and manifests
+        run: npm run validate:source
+      - name: Check for local paths and private keys
+        run: |
+          if git grep -n -E '/Users/[[:alnum:]_.-]+/|BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'; then
+            echo "Public repository safety check failed."
+            exit 1
+          fi

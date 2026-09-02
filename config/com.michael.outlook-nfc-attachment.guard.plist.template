@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.michael.outlook-nfc-attachment.guard</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/zsh</string>
+      <string>GUARD_SCRIPT</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>OUTLOOK_NFC_NODE</key>
+      <string>NODE_BIN</string>
+    </dict>
+    <key>WorkingDirectory</key>
+    <string>PROJECT_ROOT</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartInterval</key>
+    <integer>120</integer>
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>StandardOutPath</key>
+    <string>GUARD_LOG</string>
+    <key>StandardErrorPath</key>
+    <string>GUARD_ERROR_LOG</string>
+  </dict>
+</plist>

@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+!.env.example
+
+# 인증서·로그·설치 마커 등 이 Mac에서 만들어지는 상태는 공개하지 않는다.
+state/**
+!state/.gitignore
+
+# 실수로 다른 위치에서 만든 인증 파일도 Git에 들어가지 않게 막는다.
+*.key
+*.csr
+*.p12
+*.pfx

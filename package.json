@@ -1,0 +1,22 @@
+{
+  "name": "outlook-nfc-attachment",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Outlook for Mac compose add-in that attaches local files with NFC-normalized filenames.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dillettante/outlook-nfc-attachment.git"
+  },
+  "scripts": {
+    "build:icons": "node tools/generate-icons.mjs",
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "validate:source": "xmllint --noout manifest.xml manifest-web.xml && node tools/validate-project.mjs",
+    "validate": "npm run build:icons && npm run validate:source"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
